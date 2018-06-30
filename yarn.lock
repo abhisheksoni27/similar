@@ -57,16 +57,6 @@ node-fetch@^1.0.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
-sax@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
-
 whatwg-fetch@>=0.10.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
-
-xml-js@^1.6.4:
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/xml-js/-/xml-js-1.6.4.tgz#fcf9fdc9fb6d691122a02fe5a55c30f84d93ab90"
-  dependencies:
-    sax "^1.2.4"

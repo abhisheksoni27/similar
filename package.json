@@ -1,11 +1,11 @@
 {
-  "name": "goodreader",
-  "version": "1.0.0",
+  "name": "simple-scratches",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "fast-xml-parser": "^3.11.1",
-    "isomorphic-fetch": "^2.2.1",
-    "xml-js": "^1.6.4"
-  }
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "author": "Abhishek Soni <abhisheksoni2720@gmail.com>"
 }
