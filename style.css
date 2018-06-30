@@ -21,7 +21,7 @@ body {
 
 .bookInfo {
     display: grid;
-    grid-template-rows: minmax(1em, 8vh);
+    grid-template-rows: minmax(max-content, 8vh);
 }
 
 .bookInfo>* {
