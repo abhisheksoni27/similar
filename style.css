@@ -15,6 +15,8 @@ body {
 .book {
     display: grid;
     grid-template-columns: 2fr 8fr;
+    align-items: center;
+    font-size: 0.9em;
 }
 
 .bookInfo {
@@ -30,6 +32,7 @@ body {
 .bookInfo>.title {
     grid-column: 1/3;
     color: black;
+    line-height: 1.5em;
 }
 
 .similarBooksSection {
@@ -43,6 +46,12 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+    border-bottom: 0.1em dotted gray;
+}
+
 .mainSearch {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -50,15 +59,11 @@ body {
     margin: 2vh 0;
 }
 
-.mainSearch > *{
-    /* border: 1px solid pink; */
-}
-
-.progress{
+.progress {
     justify-self: center;
 }
 
-.siteTitle{
+.siteTitle {
     font-size: 0.7em;
     font-style: italic;
 }
@@ -68,7 +73,7 @@ body {
     background: #efefef;
     border: none;
     padding: 1em 0.5em;
-    width:auto;
+    width: auto;
     font-size: 1em;
 }
 
@@ -83,17 +88,16 @@ input {
 
 /*.similarBooksSection>* {
     border: 1px solid pink;
-}
+}*/
 
- .book>* {
+/* .book>* {
     border: 1px solid red;
 } */
 
 /* .book {
     border: 1px solid green;
-} 
+}  */
 
-
-#container>* {
+/* #container>* {
     border: 1px solid turquoise;
-}*/
+} */
