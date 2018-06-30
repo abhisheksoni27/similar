@@ -68,10 +68,7 @@ function init() {
 
                     const simBooks = jsonData.GoodreadsResponse.book.similar_books.book;
 
-                    console.log(simBooks[0]);
-
                     simBooks.forEach(book => {
-                        console.log(book["num_pages"], book.num_pages);
                         const bookToBeAdded = {
                             name: book.title,
                             id: book.id,

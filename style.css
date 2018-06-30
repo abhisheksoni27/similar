@@ -20,7 +20,6 @@ body {
 .bookInfo {
     display: grid;
     grid-template-rows: minmax(1em, 8vh);
-    /* justify-content: center; */
 }
 
 .bookInfo>* {
@@ -53,6 +52,10 @@ body {
 
 .mainSearch > *{
     /* border: 1px solid pink; */
+}
+
+.progress{
+    justify-self: center;
 }
 
 .siteTitle{
