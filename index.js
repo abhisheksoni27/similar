@@ -6,8 +6,8 @@ const bookURL = cors + goodreads + "book/show.xml?";
 
 const fetch = require('isomorphic-fetch');
 var fastXmlParser = require('fast-xml-parser');
-const similarBooks = [];
-const mainBook = {};
+let similarBooks = [];
+let mainBook = {};
 
 function init() {
     const node = document.querySelector(".searchInput");
@@ -111,6 +111,8 @@ function hideProgressBar() {
 
 
 function removePreviousResults() {
+    mainBooks = {};
+    similarBooks = [];
     const similarBooksSection = document.querySelector('.similarBooksSection');
 
     const singleBook = document.querySelector('.book');
