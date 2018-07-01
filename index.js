@@ -14,6 +14,7 @@ function init() {
     node.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
+            removePreviousResults();
             const progressBar = document.createElement('progress');
             progressBar.className = "progress";
             container.appendChild(progressBar);
@@ -23,6 +24,7 @@ function init() {
                 field: "title",
                 key: GOODREADS_KEY
             }
+
 
             const path = goodreadsURL + stringifyQuery(query);
             fetch(path)
@@ -104,9 +106,27 @@ function showSnackbar(message) {
 
 function hideProgressBar() {
     const element = document.querySelector('.progress');
-    element.style.display = "none";
+    deleteElement(element);
 }
 
+
+function removePreviousResults() {
+    const similarBooksSection = document.querySelector('.similarBooksSection');
+
+    const singleBook = document.querySelector('.book');
+
+    if(similarBooksSection){
+        deleteElement(similarBooksSection);
+    }
+
+    if(singleBook){
+        deleteElement(singleBook);
+    }
+}
+
+function deleteElement(element){
+    element.parentNode.removeChild(element);
+}
 
 
 function addBookToPage(book) {
