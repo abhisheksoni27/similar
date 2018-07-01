@@ -92,7 +92,11 @@ function init() {
 }
 
 function showSnackbar(message){
-    
+    const snackbar = document.createElement('div');
+    snackbar.className = "snackbar";
+    snackbar.innerHTML = `<p>${message}</p>`;
+
+    document.body.appendChild(snackbar);
 }
 
 function hideProgressBar() {

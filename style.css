@@ -2,7 +2,7 @@ body {
     font-family: "Raleway";
     padding: 0;
     margin: 0;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 #container {
@@ -81,9 +81,19 @@ a {
     color: rgb(165, 165, 165);
 }
 
-textarea,
-input {
+textarea, input {
     outline: none;
+}
+
+.snackbar {
+    width:90vw;
+    height: 75px;
+    background: #333;
+    color:white;
+    position: absolute;
+    text-align: center;
+    bottom: 1vh;
+    left:5vw;
 }
 
 /*.similarBooksSection>* {
