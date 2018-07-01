@@ -17,17 +17,17 @@ function init() {
             const progressBar = document.createElement('progress');
             progressBar.className = "progress";
             container.appendChild(progressBar);
-            
+
             const query = {
                 q: node.value,
                 field: "title",
                 key: GOODREADS_KEY
             }
-            
+
             const path = goodreadsURL + stringifyQuery(query);
             fetch(path)
-            .then(res => {
-                return res.text();
+                .then(res => {
+                    return res.text();
                 })
                 .then(xmlData => {
                     return fastXmlParser.parse(xmlData);
@@ -83,12 +83,19 @@ function init() {
 
                     addSimilarBooks();
                 })
-                .catch(err => alert(err));
+                .catch(err => {
+                    hideProgressBar();
+                    showSnackbar("Couldn't find any books! Did you make a spelling mistake?");
+                });
         }
     });
 }
 
-function hideProgressBar(){
+function showSnackbar(message){
+    
+}
+
+function hideProgressBar() {
     const element = document.querySelector('.progress');
     element.style.display = "none";
 }
