@@ -1,5 +1,4 @@
-const GOODREADS_KEY = "bGp07HnEatIeF1mDB6KQpA";
-const GOODREADS_SECRET = "m52CynASugP1GtliZHIiRXgDGheD1jp7DQxTQytB8I";
+const GOODREADS_KEY = process.env.GOODREADS_KEY;
 const cors = "https://cors-anywhere.herokuapp.com/";
 const goodreads = "https://www.goodreads.com/";
 const goodreadsURL = cors + goodreads + "search/index.xml?";
@@ -18,17 +17,17 @@ function init() {
             const progressBar = document.createElement('progress');
             progressBar.className = "progress";
             container.appendChild(progressBar);
-
+            
             const query = {
                 q: node.value,
                 field: "title",
                 key: GOODREADS_KEY
             }
-
+            
             const path = goodreadsURL + stringifyQuery(query);
             fetch(path)
-                .then(res => {
-                    return res.text();
+            .then(res => {
+                return res.text();
                 })
                 .then(xmlData => {
                     return fastXmlParser.parse(xmlData);
@@ -84,7 +83,7 @@ function init() {
 
                     addSimilarBooks();
                 })
-                .catch(err => console.log(err));
+                .catch(err => alert(err));
         }
     });
 }
