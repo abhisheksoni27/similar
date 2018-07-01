@@ -85,18 +85,21 @@ function init() {
                 })
                 .catch(err => {
                     hideProgressBar();
-                    showSnackbar("Couldn't find any books! Did you make a spelling mistake?");
+                    showSnackbar("Couldn't find any books!");
                 });
         }
     });
 }
 
-function showSnackbar(message){
+function showSnackbar(message) {
     const snackbar = document.createElement('div');
     snackbar.className = "snackbar";
     snackbar.innerHTML = `<p>${message}</p>`;
-
     document.body.appendChild(snackbar);
+    snackbar.style.bottom = "1vh";
+    setTimeout(() => {
+        snackbar.style.display = "none";
+    }, 2000);
 }
 
 function hideProgressBar() {
@@ -150,26 +153,6 @@ function createBook(book) {
         <span class="extraContent">${book.rating}</span>
     </p>
     </div>`;
-
-    // /**
-    //  * Book Image
-    //  */
-    // const image = document.createElement('img');
-    // image.src = book.image;
-    // image.alt = "book_cover";
-    // image.width = 50;
-    // image.height = 75;
-    // image.className = "bookImage";
-
-    // /**
-    //  * Book Info
-    //  */
-
-    // const bookInfo = document.createElement('div');
-    // bookInfo.class = "bookInfo";
-
-    // const bookTitle = document.createElement('p');
-
 
     return bookElement;
 }

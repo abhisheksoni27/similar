@@ -87,14 +87,16 @@ textarea, input {
 
 .snackbar {
     width:90vw;
-    height: 75px;
+    height: 50px;
     background: #333;
     color:white;
     position: absolute;
     text-align: center;
-    bottom: 1vh;
+    bottom: -100vh;
     left:5vw;
+    transition: all ease-in 1s;
 }
+
 
 /*.similarBooksSection>* {
     border: 1px solid pink;
