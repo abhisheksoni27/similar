@@ -6,15 +6,20 @@ const bookURL = cors + goodreads + "book/show.xml?";
 
 const fetch = require('isomorphic-fetch');
 const fastXmlParser = require('fast-xml-parser');
+
 let similarBooks = [];
 let mainBook = {};
 
 function init() {
+
     const node = document.querySelector(".searchInput");
+
     node.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
+
             removePreviousResults();
+
             const progressBar = document.createElement('progress');
             progressBar.className = "progress";
             container.appendChild(progressBar);
@@ -25,15 +30,11 @@ function init() {
                 key: GOODREADS_KEY
             }
 
-
             const path = goodreadsURL + stringifyQuery(query);
+
             fetch(path)
-                .then(res => {
-                    return res.text();
-                })
-                .then(xmlData => {
-                    return fastXmlParser.parse(xmlData);
-                })
+                .then(getText)
+                .then(xmlToJSON)
                 .then(jsonData => {
                     const id = jsonData.GoodreadsResponse.search.results.work[0].best_book.id;
                     const author = jsonData.GoodreadsResponse.search.results.work[0].best_book.author.name;
@@ -51,12 +52,8 @@ function init() {
                     const path = bookURL + stringifyQuery(query);
                     return fetch(path);
                 })
-                .then(res => {
-                    return res.text();
-                })
-                .then(xmlData => {
-                    return fastXmlParser.parse(xmlData);
-                })
+                .then(getText)
+                .then(xmlToJSON)
                 .then(jsonData => {
                     const searchBook = jsonData.GoodreadsResponse.book;
 
@@ -70,7 +67,7 @@ function init() {
                     const simBooks = jsonData.GoodreadsResponse.book.similar_books.book;
 
                     simBooks.forEach(book => {
-                        const bookToBeAdded = {
+                        const simBook = {
                             name: book.title,
                             id: book.id,
                             link: book.link,
@@ -80,17 +77,25 @@ function init() {
                             rating: book["average_rating"]
                         };
 
-                        similarBooks.push(bookToBeAdded);
+                        similarBooks.push(simBook);
                     });
 
                     addSimilarBooks();
                 })
                 .catch(err => {
                     hideProgressBar();
-                    showSnackbar("Couldn't find any books!");
+                    showSnackbar("Error: Couldn't find any books!");
                 });
         }
     });
+}
+
+function xmlToJSON(xmlData) {
+    return fastXmlParser.parse(xmlData);
+}
+
+function getText(res) {
+    return res.text();
 }
 
 function showSnackbar(message) {
@@ -117,16 +122,16 @@ function removePreviousResults() {
 
     const singleBook = document.querySelector('.book');
 
-    if(similarBooksSection){
+    if (similarBooksSection) {
         deleteElement(similarBooksSection);
     }
 
-    if(singleBook){
+    if (singleBook) {
         deleteElement(singleBook);
     }
 }
 
-function deleteElement(element){
+function deleteElement(element) {
     element.parentNode.removeChild(element);
 }
 
