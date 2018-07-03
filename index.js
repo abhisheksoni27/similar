@@ -5,7 +5,7 @@ const goodreadsURL = cors + goodreads + "search/index.xml?";
 const bookURL = cors + goodreads + "book/show.xml?";
 
 const fetch = require('isomorphic-fetch');
-var fastXmlParser = require('fast-xml-parser');
+const fastXmlParser = require('fast-xml-parser');
 let similarBooks = [];
 let mainBook = {};
 
