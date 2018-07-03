@@ -8,8 +8,8 @@
     "isomorphic-fetch": "^2.2.1"
   },
   "scripts":{
-    "clean": "rm -rf docs; rm -rf dist",
-    "build": "npm run clean; parcel build index.html; mv dist docs"
+    "clean": "rm -rf docs dist",
+    "build": "npm run clean; parcel build index.html; mv dist docs;"
   },
   "author": "Abhishek Soni <abhisheksoni2720@gmail.com>"
 }
